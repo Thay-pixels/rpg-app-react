@@ -1,47 +1,29 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Mestre from './pages/master/Master';
+import Master from './pages/master/Master';
 import Player from './pages/player/Player';
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 import styled from 'styled-components';
-import Button from './components/Button';
-
-const ContainerPrincipal = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  text-align: center;
-`;
-
-const Title = styled.h1`
-  font-size: 3rem;
-  color: #f0f0f0;
-`;
+import CssGlobal from './components/CSSGlobal';
 
 const App = () => {
   return (
+
     <Router>
+
+      <CssGlobal />
+
       <Routes>
-        <Route 
-          path="/" 
-          element={
-            <ContainerPrincipal>
-              <Title>Escolha seu Perfil</Title>
-              <div>
-                <Link to="/mestre">
-                  <Button>Mestre</Button>
-                </Link>
-                <Link to="/player">
-                  <Button>Jogador</Button>
-                </Link>
-              </div>
-            </ContainerPrincipal>
-          } 
-        />
-        <Route path="/mestre" element={<Mestre />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/master" element={<Master />} />
         <Route path="/player" element={<Player />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
+
     </Router>
+
   );
 };
 
